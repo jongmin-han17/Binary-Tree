@@ -174,7 +174,7 @@ int main()
     tr->InsertNode(35);
     tr->InsertNode(20);
 
-//    			50
+//    		50
 //            ↙     ↘
 //    	   47		   53
 //       ↙   ↘       ↙  ↘
