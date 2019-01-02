@@ -8,16 +8,17 @@ class treeNode
     friend class tree;
 private:
     int value;
-    treeNode *left, *right;
+    treeNode* left;
+    treeNode* right;
     treeNode(int val) : value(val), left(nullptr), right(nullptr) {}   // Constructor
 };
 
 class tree
 {
 private:
-    treeNode *root;
-    void recursiveInsert(treeNode *&, int);
-    void recursiveRemove(treeNode *&, int);
+    treeNode* root;
+    void recursiveInsert(treeNode*&, int);
+    void recursiveRemove(treeNode*&, int);
     void preorderRecursivePrint(treeNode*);
     void postorderRecursivePrint(treeNode*);
     void inorderRecursivePrint(treeNode*);
@@ -30,7 +31,7 @@ public:
     void inorderPrint();
 };
 
-void tree::recursiveInsert(treeNode *&node, int val)
+void tree::recursiveInsert(treeNode*& node, int val)
 {
     if (node == nullptr)
         node = new treeNode(val);   //Make new node if the current node is nullptr.(Insertion)
@@ -40,9 +41,9 @@ void tree::recursiveInsert(treeNode *&node, int val)
         recursiveInsert(node->left, val);   //If the value to insert is less than current node value, then search left subtree.
 }
 
-void tree::recursiveRemove(treeNode *& node, int val)
+void tree::recursiveRemove(treeNode*& node, int val)
 {
-    treeNode *removal = new treeNode(0);
+    treeNode* removal = new treeNode(0);
 
     if (node == nullptr)
         return;      //End the function when the value is not found.
@@ -84,7 +85,7 @@ void tree::recursiveRemove(treeNode *& node, int val)
     }
 }
 
-void tree::preorderRecursivePrint(treeNode *node)
+void tree::preorderRecursivePrint(treeNode* node)
 {
     if (node != nullptr)
     {
@@ -94,7 +95,7 @@ void tree::preorderRecursivePrint(treeNode *node)
     }
 }
 
-void tree::inorderRecursivePrint(treeNode *node)
+void tree::inorderRecursivePrint(treeNode* node)
 {
     if (node != nullptr)
     {
@@ -104,7 +105,7 @@ void tree::inorderRecursivePrint(treeNode *node)
     }
 }
 
-void tree::postorderRecursivePrint(treeNode *node)
+void tree::postorderRecursivePrint(treeNode* node)
 {
     if (node != nullptr)
     {
@@ -148,7 +149,7 @@ void tree::postorderPrint()
 
 int main()
 {
-    tree *tr = new tree();
+    tree* tr = new tree();
 
     tr->insert(50);
     tr->insert(47);
